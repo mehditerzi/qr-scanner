@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <button @click="startScanner">Start Scanner</button>
-    <video ref="videoRef" style="width: 100%; max-width: 500px;"></video>
+  <div class="wrapper">
+    <video ref="videoRef"></video>
+    <button @click="startScanner">Tara</button>
   </div>
 </template>
 
@@ -59,8 +59,25 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+.wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 100px;
+  width: 100%;
+  height: 100%;
+}
 video {
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%;
+  height: auto;
+}
+button{
+  width: 5em;
+  height: 2em;
+  font-size: 4em;
+  border-radius: 1em;
 }
 </style>
