@@ -21,7 +21,7 @@ function onScanSuccess(result) {
   alert(`Misafir İsmi: ${result}`);
 
   // Resume scanning after the pop-up is closed
-  scanning = true;
+  setTimeout(() => { scanning = true; }, 1000);
 }
 
 function onScanError(error) {
