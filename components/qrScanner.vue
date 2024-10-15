@@ -77,7 +77,8 @@ video {
 button{
   width: 5em;
   height: 2em;
-  font-size: 4em;
+  font-size: 2em;
+  font-size: 2em;
   border-radius: 1em;
 }
 </style>
