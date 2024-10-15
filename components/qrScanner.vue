@@ -11,12 +11,17 @@ import QrScanner from 'qr-scanner';
 
 const videoRef = ref(null);
 let qrScanner = null;
+let scanning = false;
 
 function onScanSuccess(result) {
+  if (!scanning) return; // Prevent multiple alerts
+  scanning = false; // Pause scanning
+
   // Show the result in a pop-up
   alert(`QR Code content: ${result}`);
-  // Optionally, stop the scanner after a successful scan
-  qrScanner.stop();
+
+  // Resume scanning after the pop-up is closed
+  scanning = true;
 }
 
 function onScanError(error) {
@@ -36,7 +41,9 @@ function startScanner() {
         (error) => onScanError(error)
     );
 
-    qrScanner.start().catch((error) => {
+    qrScanner.start().then(() => {
+      scanning = true; // Start scanning
+    }).catch((error) => {
       console.error(error);
       alert(`Could not start camera: ${error}`);
     });
