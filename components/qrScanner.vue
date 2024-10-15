@@ -18,7 +18,7 @@ function onScanSuccess(result) {
   scanning = false; // Pause scanning
 
   // Show the result in a pop-up
-  alert(`QR Code content: ${result}`);
+  alert(`Misafir İsmi: ${result}`);
 
   // Resume scanning after the pop-up is closed
   scanning = true;
@@ -45,7 +45,7 @@ function startScanner() {
       scanning = true; // Start scanning
     }).catch((error) => {
       console.error(error);
-      alert(`Could not start camera: ${error}`);
+      alert(`Kamera başlatılamadı: ${error}`);
     });
   }
 }
